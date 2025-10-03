@@ -120,3 +120,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.animateSomeElement {
+  transform: translateZ(0); /* Sometimes forces hardware acceleration */
+}
+
+.blurElement {
+  --tw-backdrop-blur: blur(20px); /* Consistent backdrop blur usage */
+}
