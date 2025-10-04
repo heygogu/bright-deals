@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   TrendingUp,
@@ -77,6 +77,12 @@ const DEFAULT_FEATURES = [
 export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
   const [active, setActive] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % features.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
   const activeFeature = features[active] || features[0];
 
   return (

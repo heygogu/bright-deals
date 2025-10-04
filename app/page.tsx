@@ -40,47 +40,8 @@ export default function BrightDealsLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
-
-  const features = [
-    {
-      icon: Zap,
-      title: "Lightning-Fast Bulk Shortening",
-      description:
-        "Transform hundreds of affiliate links in seconds. Upload a CSV, paste multiple URLs, or connect directly to your favorite platforms. Our AI-powered system optimizes each link for maximum click-through rates.",
-      color: "from-indigo-500 to-purple-600",
-      stats: "100+ links/min",
-      iconBg: "bg-indigo-500",
-    },
-    {
-      icon: Share2,
-      title: "One-Click Multi-Platform Sharing",
-      description:
-        "Share to Instagram Stories, Twitter threads, YouTube descriptions, and Telegram channels simultaneously. Custom formatting for each platform ensures your links look native and professional everywhere.",
-      color: "from-violet-500 to-fuchsia-600",
-      stats: "5 platforms",
-      iconBg: "bg-violet-500",
-    },
-    {
-      icon: History,
-      title: "Intelligent History & Organization",
-      description:
-        "Never lose a link again. Tag, categorize, and search through your entire link history. Set expiration dates, create campaigns, and organize by brand, product type, or seasonal promotions.",
-      color: "from-blue-500 to-cyan-500",
-      stats: "Unlimited storage",
-      iconBg: "bg-blue-500",
-    },
-    {
-      icon: BarChart3,
-      title: "Real-Time Analytics Dashboard",
-      description:
-        "Track clicks, conversions, and earnings in real-time. See which platforms perform best, optimal posting times, and audience demographics. Get actionable insights to boost your commission rates.",
-      color: "from-emerald-500 to-teal-600",
-      stats: "Live tracking",
-      iconBg: "bg-emerald-500",
-    },
-  ];
+  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
 
   const platforms = [
     { icon: Instagram, name: "Instagram", color: "text-pink-500" },
@@ -121,13 +82,6 @@ export default function BrightDealsLanding() {
       avatar: "AP",
     },
   ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveFeature((prev) => (prev + 1) % features.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className='min-h-screen bg-slate-50 text-slate-900 overflow-hidden'>
@@ -282,14 +236,14 @@ export default function BrightDealsLanding() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className='flex items-center justify-center gap-8 pt-8'>
-              {platforms.map((platform, idx) => (
+              {platforms.slice(0, 3).map((platform, idx) => (
                 <motion.div
                   key={platform.name}
-                  whileHover={{ scale: 1.15, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + idx * 0.1 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                   className='flex flex-col items-center gap-2'>
                   <div className='w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-slate-200'>
                     <platform.icon className={`w-8 h-8 ${platform.color}`} />
@@ -299,6 +253,29 @@ export default function BrightDealsLanding() {
                   </span>
                 </motion.div>
               ))}
+
+              {/* render telegram here using ccustom svf */}
+              <motion.div
+                whileHover={{ scale: 1.1, y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className='flex flex-col items-center gap-2'>
+                <div className='w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-slate-200'>
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32"><path d="M26.07 3.996a2.974 2.974 0 0 0-.933.223h-.004c-.285.113-1.64.683-3.7 1.547l-7.382 3.109c-5.297 2.23-10.504 4.426-10.504 4.426l.062-.024s-.359.118-.734.375a2.03 2.03 0 0 0-.586.567c-.184.27-.332.683-.277 1.11.09.722.558 1.155.894 1.394.34.242.664.355.664.355h.008l4.883 1.645c.219.703 1.488 4.875 1.793 5.836.18.574.355.933.574 1.207.106.14.23.257.379.351a1.119 1.119 0 0 0 .246.106l-.05-.012c.015.004.027.016.038.02.04.011.067.015.118.023.773.234 1.394-.246 1.394-.246l.035-.028 2.883-2.625 4.832 3.707.11.047c1.007.442 2.027.196 2.566-.238.543-.437.754-.996.754-.996l.035-.09 3.734-19.129c.106-.472.133-.914.016-1.343a1.807 1.807 0 0 0-.781-1.047 1.872 1.872 0 0 0-1.067-.27Zm-.101 2.05c-.004.063.008.056-.02.177v.011l-3.699 18.93c-.016.027-.043.086-.117.145-.078.062-.14.101-.465-.028l-5.91-4.531-3.57 3.254.75-4.79 9.656-9c.398-.37.265-.448.265-.448.028-.454-.601-.133-.601-.133l-12.176 7.543-.004-.02-5.836-1.965v-.004l-.015-.003a.27.27 0 0 0 .03-.012l.032-.016.031-.011s5.211-2.196 10.508-4.426c2.652-1.117 5.324-2.242 7.379-3.11 2.055-.863 3.574-1.496 3.66-1.53.082-.032.043-.032.102-.032Z"/></svg> usew this */}
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='#0088CC'
+                    viewBox='0 0 32 32'
+                    className='w-8 h-8'>
+                    <path d='M26.07 3.996a2.974 2.974 0 0 0-.933.223h-.004c-.285.113-1.64.683-3.7 1.547l-7.382 3.109c-5.297 2.23-10.504 4.426-10.504 4.426l.062-.024s-.359.118-.734.375a2.03 2.03 0 0 0-.586.567c-.184.27-.332.683-.277 1.11.09.722.558 1.155.894 1.394.34.242.664.355.664.355h.008l4.883 1.645c.219.703 1.488 4.875 1.793 5.836.18.574.355.933.574 1.207.106.14.23.257.379.351a1.119 1.119 0 0 0 .246.106l-.05-.012c.015.004.027.016.038.02.04.011.067.015.118.023.773.234 1.394-.246 1.394-.246l.035-.028 2.883-2.625 4.832 3.707.11.047c1.007.442 2.027.196 2.566-.238.543-.437.754-.996.754-.996l.035-.09 3.734-19.129c.106-.472.133-.914.016-1.343a1.807 1.807 0 0 0-.781-1.047 1.872 1.872 0 0 0-1.067-.27Zm-.101 2.05c-.004.063.008.056-.02.177v.011l-3.699 18.93c-.016.027-.043.086-.117.145-.078.062-.14.101-.465-.028l-5.91-4.531-3.57 3.254.75-4.79 9.656-9c.398-.37.265-.448.265-.448.028-.454-.601-.133-.601-.133l-12.176 7.543-.004-.02-5.836-1.965v-.004l-.015-.003a.27.27 0 0 0 .03-.012l.032-.016.031-.011s5.211-2.196 10.508-4.426c2.652-1.117 5.324-2.242 7.379-3.11 2.055-.863 3.574-1.496 3.66-1.53.082-.032.043-.032.102-.032Z' />
+                  </svg>
+                </div>
+                <span className='text-xs text-slate-600 font-medium'>
+                  Telegram
+                </span>
+              </motion.div>
             </motion.div>
 
             {/* Stats */}

@@ -153,7 +153,7 @@ export default function BenefitsTestimonialsCTA({
             revenue. Start today with no risk.
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-6 justify-center relative z-10'>
+          <div className='flex flex-col sm:flex-row gap-6 justify-center items-center relative z-10'>
             <Button
               size='lg'
               className='bg-white text-indigo-600 font-bold text-lg px-12 py-6 rounded-2xl shadow-2xl hover:bg-slate-100'>
@@ -161,8 +161,8 @@ export default function BenefitsTestimonialsCTA({
             </Button>
             <Button
               size='lg'
-              variant='outline'
-              className='border-2 border-white/40 text-white hover:bg-white/10 text-lg px-12 py-6 rounded-2xl'>
+              // variant='outline'
+              className='border-2 border-white/40 bg-white/20  hover:bg-white/10 text-lg px-12 py-6 rounded-2xl'>
               Schedule Demo
             </Button>
           </div>
