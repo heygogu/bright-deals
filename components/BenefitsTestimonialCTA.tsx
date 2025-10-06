@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Check, Star, Sparkles, Quote } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function BenefitsTestimonialsCTA({
