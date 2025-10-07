@@ -88,35 +88,12 @@ export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
   return (
     <section
       id='features'
-      className='relative z-10 px-6 py-20 max-w-6xl mx-auto mask-t-from-85%'>
+      className='relative z-10 px-6 py-20 max-w-6xl mx-auto '>
       {/* Decorative blobs */}
-      <div className='pointer-events-none absolute inset-0 -z-10 overflow-hidden'>
-        <svg
-          className='absolute left-1/2 -translate-x-1/2 top-0 transform blur-3xl opacity-30'
-          width='900'
-          height='500'
-          viewBox='0 0 900 500'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-          aria-hidden>
-          <defs>
-            <linearGradient id='g1' x1='0' x2='1'>
-              <stop offset='0%' stopColor='#6366F1' />
-              <stop offset='100%' stopColor='#7C3AED' />
-            </linearGradient>
-            <linearGradient id='g2' x1='0' x2='1'>
-              <stop offset='0%' stopColor='#A78BFA' />
-              <stop offset='100%' stopColor='#C084FC' />
-            </linearGradient>
-          </defs>
-          <circle cx='220' cy='120' r='200' fill='url(#g1)' />
-          <circle cx='680' cy='300' r='160' fill='url(#g2)' />
-        </svg>
-      </div>
 
       <div className='max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-start'>
         {/* Left column: Headline + Live mockup */}
-        <div className='lg:col-span-5'>
+        <div className='lg:col-span-6'>
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +175,7 @@ export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
         </div>
 
         {/* Right column: Feature cards (timeline-like, interactive) */}
-        <div className='lg:col-span-7'>
+        <div className='lg:col-span-6'>
           <div className='space-y-6'>
             {features.map((f, idx) => {
               const Icon = f.icon || LinkIcon;

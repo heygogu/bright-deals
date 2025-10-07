@@ -9,10 +9,8 @@ export default function BenefitsTestimonialsCTA({
   return (
     <>
       {/* Benefits Section - Heroic Showcase */}
-      <section
-        id='benefits'
-        className='relative z-10 px-6 py-40 bg-gradient-to-b from-indigo-50 via-white to-violet-50 overflow-hidden'>
-        <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-indigo-200/20 rounded-full blur-3xl'></div>
+      <section id='benefits' className='relative  px-6 py-40  overflow-hidden'>
+        {/* <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-indigo-200/20 rounded-full blur-xl'></div> */}
         <div className='max-w-5xl mx-auto relative'>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -22,7 +20,7 @@ export default function BenefitsTestimonialsCTA({
             <span className='text-indigo-600 font-semibold text-sm uppercase tracking-wider'>
               Benefits
             </span>
-            <h2 className='text-5xl md:text-6xl font-extrabold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600'>
+            <h2 className='text-5xl pb-2 md:text-6xl font-extrabold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600'>
               Why Creators Choose Us
             </h2>
             <p className='text-xl text-slate-600 max-w-2xl mx-auto'>
@@ -73,6 +71,12 @@ export default function BenefitsTestimonialsCTA({
       <section
         id='testimonials'
         className='relative z-10 px-6 py-40 bg-slate-900 text-white overflow-hidden'>
+        <div
+          className='absolute inset-0'
+          style={{
+            backgroundImage: `radial-gradient(circle at 0.1px 0.1px, var(--color-white) 0.1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}></div>
         <div className='absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.2),transparent)]'></div>
         <div className='max-w-6xl mx-auto relative'>
           <motion.div
@@ -128,6 +132,12 @@ export default function BenefitsTestimonialsCTA({
 
       {/* CTA Section - Big Closing Hero */}
       <section className='relative z-10 px-6 py-40 bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 text-white overflow-hidden'>
+        <div
+          className='absolute inset-0'
+          style={{
+            backgroundImage: `radial-gradient(circle at 0.1px 0.1px, var(--color-white) 0.3px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}></div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -138,6 +148,7 @@ export default function BenefitsTestimonialsCTA({
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             className='absolute -top-20 -left-20 w-72 h-72 bg-yellow-400 rounded-full blur-3xl opacity-30'
           />
+
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
