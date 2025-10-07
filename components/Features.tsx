@@ -86,7 +86,9 @@ export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
   const activeFeature = features[active] || features[0];
 
   return (
-    <section id='features' className='relative z-10 px-6 py-20 bg-white'>
+    <section
+      id='features'
+      className='relative z-10 px-6 py-20 max-w-6xl mx-auto mask-t-from-85%'>
       {/* Decorative blobs */}
       <div className='pointer-events-none absolute inset-0 -z-10 overflow-hidden'>
         <svg
@@ -219,7 +221,7 @@ export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
                       />
                     </span>
 
-                    <div className='ml-6 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition flex gap-5 items-start'>
+                    <div className='ml-6 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition flex gap-5 items-start'>
                       <div
                         className={`flex items-center justify-center w-14 h-14 rounded-lg text-white shadow-md ${f.iconBg} flex-shrink-0`}
                         aria-hidden>
@@ -228,7 +230,7 @@ export default function FeaturesSection({ features = DEFAULT_FEATURES }) {
 
                       <div className='flex-1'>
                         <div className='flex items-center justify-between gap-4'>
-                          <h3 className='text-lg font-semibold text-slate-900'>
+                          <h3 className='text-md font-semibold text-slate-900'>
                             {f.title}
                           </h3>
 

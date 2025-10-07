@@ -13,7 +13,7 @@ export default function BenefitsTestimonialsCTA({
         id='benefits'
         className='relative z-10 px-6 py-40 bg-gradient-to-b from-indigo-50 via-white to-violet-50 overflow-hidden'>
         <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-indigo-200/20 rounded-full blur-3xl'></div>
-        <div className='max-w-7xl mx-auto relative'>
+        <div className='max-w-5xl mx-auto relative'>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export default function BenefitsTestimonialsCTA({
             </p>
           </motion.div>
 
-          <div className='grid lg:grid-cols-3 gap-10'>
+          <div className='grid lg:grid-cols-3 gap-10 px-5 lg:px-0'>
             {benefits.map((benefit: string, idx: number) => (
               <motion.div
                 key={idx}
@@ -51,7 +51,7 @@ export default function BenefitsTestimonialsCTA({
             ))}
           </div>
 
-          <div className='mt-20 grid md:grid-cols-3 gap-6 text-center'>
+          <div className='mt-20 grid md:grid-cols-3 gap-6 px-5 lg:px-0 text-center'>
             {[
               { value: "40%", label: "Higher CTR" },
               { value: "10h", label: "Saved Weekly" },

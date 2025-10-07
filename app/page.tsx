@@ -38,7 +38,6 @@ import BenefitsTestimonialsCTA from "@/components/BenefitsTestimonialCTA";
 
 export default function BrightDealsLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
   const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
@@ -99,8 +98,8 @@ export default function BrightDealsLanding() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className='sticky top-0 z-50 px-6 py-4 bg-white/80 backdrop-blur-xl border-b border-slate-200'>
-        <div className='max-w-7xl mx-auto flex items-center justify-between'>
+        className='fixed inset-x-0 z-50 px-6 py-4   '>
+        <div className='max-w-6xl rounded-full px-10 py-4 mx-auto flex items-center justify-between border border-transparent shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-2xl bg-white/50'>
           <motion.div
             whileHover={{ scale: 1.05 }}
             className='flex items-center gap-3'>
@@ -174,7 +173,7 @@ export default function BrightDealsLanding() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className='relative z-10 px-6 pt-20 pb-32'>
+      <section className='relative z-10 px-6 pt-20 pb-32 mt-15'>
         <div className='max-w-7xl mx-auto'>
           <motion.div
             style={{ opacity, scale }}
@@ -194,11 +193,16 @@ export default function BrightDealsLanding() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className='text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight'>
-              Manage Links Like
+              className='text-6xl md:text-7xl lg:text-8xl font-bold leading-tight cursor-pointer tracking-tight '>
+              <span className='text-transparent bg-clip-text bg-gradient-to-b from-neutral-800 to-neutral-400 text-shadow-md'>
+                Manage Links Like
+              </span>
               <br />
+              <span className="text-white after:content-[''] after:bg-gradient-to-r after:from-indigo-600 after:via-violet-600 after:to-purple-600 after:w-[102%] after:h-full relative after:absolute after:inset-0 after:-z-1 after:-skew-4 mx-4 p-3 after:mt-2">
+                Never
+              </span>
               <span className='bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent'>
-                Never Before
+                Before
               </span>
             </motion.h1>
 
@@ -206,7 +210,7 @@ export default function BrightDealsLanding() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className='text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed'>
+              className='text-xl md:text-2xl p-3 text-slate-600 max-w-3xl mx-auto leading-relaxed'>
               The ultimate link shortening & management platform built
               exclusively for content creators. Streamline your workflow and
               maximize your earnings.
@@ -326,9 +330,9 @@ export default function BrightDealsLanding() {
 
       {/* Footer */}
       <footer className='relative z-10 bg-gradient-to-br from-white via-slate-50 to-slate-100 border-t border-slate-200'>
-        <div className='max-w-7xl mx-auto px-6 py-20'>
+        <div className='max-w-6xl mx-auto px-6 py-20'>
           {/* Top Section */}
-          <div className='grid lg:grid-cols-4 gap-16 mb-16'>
+          <div className='grid lg:grid-cols-4 gap-14 mb-16'>
             {/* Brand */}
             <div>
               <div className='flex items-center gap-3 mb-6'>
@@ -376,7 +380,7 @@ export default function BrightDealsLanding() {
             </div>
 
             {/* Company */}
-            <div>
+            <div className='relative lg:-left-10'>
               <h4 className='font-bold mb-5 text-slate-900 tracking-wide uppercase text-sm'>
                 Company
               </h4>
@@ -400,7 +404,7 @@ export default function BrightDealsLanding() {
             </div>
 
             {/* Newsletter */}
-            <div>
+            <div className='relative lg:-left-26'>
               <h4 className='font-bold mb-5 text-slate-900 tracking-wide uppercase text-sm'>
                 Stay Updated
               </h4>
