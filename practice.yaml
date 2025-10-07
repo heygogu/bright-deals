@@ -1,0 +1,153 @@
+version: 1.6.0
+# this is the version of the yaml file not the version of any software
+
+
+# Challenge 2 — Baking Recipes
+
+# Build a YAML file for a baking recipe book with these requirements:
+  # Root key: recipes (a list of recipes).
+    # Each recipe should have:
+    # name (string) → name of the recipe
+    # ingredients (list of dictionaries), each with:
+    # item (string) → ingredient name
+    # quantity (string) → amount
+    # steps (list of strings) → step-by-step instructions
+
+# Include two recipes:
+  # "Chocolate Cake" with ingredients: 
+    # flour: 2 cups
+    # sugar: 1.5 cups
+    # cocoa powder: 0.5 cups
+    # Steps: "Mix ingredients", "Bake at 350F for 30 mins"
+  # "Banana Bread" with ingredients:
+    # banana: 3 ripe
+    # flour: 2 cups
+    # sugar: 1 cup
+    # Steps: "Mash bananas", "Mix with flour and sugar", "Bake at 350F for 40 mins"
+
+
+chai_type: rohit
+
+#this is the multiline string
+description: |
+  This is a multiline string
+    with a newline
+    and a tab
+
+morning_chai: 2025-01-15 08:30:05
+evening_chai: 2025-01-15 18:30:05
+
+# This is a comment line now I will make a list (new format)
+spices: -ginger
+  -cinnemon
+  -cloves
+  -cardamom
+
+# make an array in old format
+tools: [hammer, saw, screwdriver]
+
+# How about some array of objects
+spices2:
+  - name:
+      varities:
+        - new_ginger
+
+chai_categories:
+  - name:
+      - varities:
+          - chai
+          - chai2
+
+#Workigng with maps or dictionaries
+
+chocolate_chai:
+  name: chocolate_chai
+  ingredients:
+    milk: 100ml
+    sugar: 100g
+
+  steps: |
+    boil milk
+    mix sugar
+    add chocolate
+    stir
+
+#Hoping onto the trackers
+
+default_config: &yeye milk:100ml
+  sugar:100g
+  butter:100g
+  flour:100g
+  water:100ml
+
+inherited_config:
+  <<: *yeye
+
+#Typecasting
+
+to_int: !!int 123
+
+to_string: !!str 123
+
+#making of a set
+unique_set: !!set
+  ? name
+
+#practice
+
+lemon_chai:
+  origin: Bangladesh
+  made_in: Dhaka
+  ingredients:
+    water: 100ml
+    lemon: 50g
+  lemon_variety:
+    - name: green_lemon
+  green_lemon_leaves:
+    - green
+    - yellow
+    - name: yellow_lemon
+  process: |
+    boil water
+    add lemon
+    add sugar
+    heat using gasoline
+
+pipelines:
+  default:
+    - step:
+        name: Install Dependencies
+        caches:
+          - pip
+        script:
+          - python -m pip install --upgrade pip
+          - pip install -r requirements.txt
+
+tea_menu:
+  - name: masala_chai
+    ingredients:
+      milk: 100ml
+      sugar: 2tsp
+      spice: 
+        - ginger
+        - cardamom
+
+recipes:
+  - name: "Chocolate Cake"
+    ingredients:
+      flour : 2cups
+      sugar : 1.5cups
+      cocoa_powder : 0.5cups
+    steps:
+      - "Mix ingredients"
+      - "Bake at 350F for 30 mins"
+
+  - name: "Banana Bread" 
+    ingredients:
+      banana: 3ripe
+      flour: 2cups
+      sugar: 1cup 
+    steps:
+      - "Mash Bananas"   
+      - "Mix with flour and sugar"
+      - "Bake at 350F for 40 mins"
